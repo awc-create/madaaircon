@@ -1,0 +1,28 @@
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 40px;
+  transition: background 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+/* Primary Button Variant */
+.primary {
+  background: black;
+  color: white;
+
+  &:hover {
+    background: #333;
+  }
+}
+
+/* Responsive Button Sizing */
+@media (max-width: 600px) {
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
