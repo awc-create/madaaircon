@@ -1,0 +1,53 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure full-width scaling */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* ✅ Prevents horizontal scrolling */
+  overflow-y: auto; /* ✅ Enables vertical scrolling */
+  scroll-behavior: smooth; /* ✅ Enables smooth scrolling */
+}
+
+/* Main wrapper to apply background */
+.background-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/logo/logo-full.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 500px;
+  opacity: 0.50;
+  z-index: -1;
+}
+
+/* Ensure sections take full width */
+.container {
+  width: 100%;
+  max-width: 1400px; /* Prevents extreme stretching */
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative; /* ✅ Ensures content is above background */
+  z-index: 10;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .container {
+      max-width: 90%; /* Adjust for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      max-width: 95%; /* Adjust for mobile */
+  }
+}
