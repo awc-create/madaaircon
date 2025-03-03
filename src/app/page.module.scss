@@ -114,7 +114,12 @@
 }
 
 @media (max-width: 768px) {
+  .homeContainer {
+    padding-top: 120px; /* ✅ Increased space for mobile */
+  }
+
   .heroSection {
+    padding-top: 20px;
     height: auto;
     flex-direction: column;
   }

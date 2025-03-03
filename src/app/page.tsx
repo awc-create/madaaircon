@@ -1,10 +1,14 @@
 import Hero from "@/components/home/hero/Hero";
+import Services from "@/components/home/services/Services";
+import ReviewSlider from "@/components/home/review/ReviewSlider";
 import styles from "./page.module.scss";
 
 const Home: React.FC = () => {
   return (
     <main className={styles.homeContainer}>
       <Hero />
+      <Services />
+      <ReviewSlider />
     </main>
   );
 };

@@ -5,7 +5,7 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
-  preset: "ts-jest",  // ✅ Explicitly specify ts-jest preset
+  preset: "ts-jest",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
   testTimeout: 15000,
@@ -15,10 +15,15 @@ const customJestConfig = {
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"  // ✅ Explicitly define transform for TypeScript
+    "^.+\\.(ts|tsx)$": "ts-jest"
   },
   transformIgnorePatterns: ["/node_modules/"],
-  testPathIgnorePatterns: ["/node_modules/", "/dist/"]
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
+
+  // ✅ FIX: Mock react-slick to prevent Jest from breaking
+  moduleNameMapper: {
+    "^react-slick$": "<rootDir>/__mocks__/react-slick.js"
+  }
 };
 
 module.exports = createJestConfig(customJestConfig);
