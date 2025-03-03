@@ -6,6 +6,12 @@
   padding-top: 100px; /* ✅ Ensures content starts below the navbar */
 }
 
+.heroSection, .servicesSection {
+  background: rgba(255, 255, 255, 0.95);
+  position: relative;
+  z-index: 1;
+}
+
 /* ✅ HERO SECTION - Split Layout */
 .heroSection {
   width: 100%;

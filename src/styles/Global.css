@@ -1,53 +1,61 @@
-/* Global Styles */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Ensure full-width scaling */
+/* Full-page scaling */
 html, body {
   width: 100%;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-  overflow-x: hidden; /* ✅ Prevents horizontal scrolling */
+  overflow-x: hidden; /* ✅ Prevents unwanted horizontal scrolling */
   overflow-y: auto; /* ✅ Enables vertical scrolling */
   scroll-behavior: smooth; /* ✅ Enables smooth scrolling */
+  position: relative; /* ✅ Needed to layer elements properly */
 }
 
-/* Main wrapper to apply background */
+/* ✅ Background Wrapper - Ensures Background Stays Behind */
 .background-wrapper {
+  position: fixed;  /* ✅ Ensures it stays in place */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-image: url("/assets/logo/logo-full.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: 500px;
-  opacity: 0.50;
-  z-index: -1;
+  opacity: 0.08; /* ✅ Makes it semi-transparent */
+  z-index: -1; /* ✅ Ensures background stays behind everything */
+  pointer-events: none; /* ✅ Prevents interaction issues */
 }
 
-/* Ensure sections take full width */
+/* ✅ Body Styling - Ensures Background Shows */
+body {
+  position: relative; /* ✅ Keep content properly layered */
+}
+
+/* ✅ Content Wrapper - Ensures Content is Above */
 .container {
   width: 100%;
-  max-width: 1400px; /* Prevents extreme stretching */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 5%;
-  position: relative; /* ✅ Ensures content is above background */
-  z-index: 10;
+  position: relative; /* ✅ Ensures content stays above the background */
+  z-index: 10; /* ✅ Keeps content above */
 }
 
-/* Responsive Layout */
+/* ✅ Responsive Adjustments */
 @media (max-width: 1024px) {
   .container {
-      max-width: 90%; /* Adjust for tablets */
+    max-width: 90%;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-      max-width: 95%; /* Adjust for mobile */
+    max-width: 95%;
   }
 }
