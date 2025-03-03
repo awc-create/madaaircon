@@ -47,7 +47,7 @@ const ReviewSlider: React.FC = () => {
         width="24"
         height="24"
         style={{ color: "#FFD700" }}
-        data-testid="star-icon" // ✅ Added for testability
+        data-testid="star-icon"
       />
     ));
   };
@@ -59,7 +59,9 @@ const ReviewSlider: React.FC = () => {
         {reviews.map((review, index) => (
           <div key={index} className={styles.reviewBox}>
             <div className={styles.stars}>{renderStars(review.rating)}</div>
-            <p className={styles.reviewText}>"{review.review}"</p>
+            <p className={styles.reviewText}>
+              &quot;{review.review}&quot;
+            </p>
             <p className={styles.reviewerName}>- {review.name}</p>
           </div>
         ))}
