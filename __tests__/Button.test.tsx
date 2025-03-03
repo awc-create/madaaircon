@@ -14,7 +14,7 @@ describe("Button Component", () => {
     render(<Button text="Click Me" href="/test" variant="primary" className="custom-class" />);
 
     const buttonElement = screen.getByRole("link", { name: /click me/i });
-    expect(buttonElement).toHaveClass("button button-primary custom-class");
+    expect(buttonElement).toHaveClass("button primary custom-class");
   });
 
   test("has the correct href attribute", () => {

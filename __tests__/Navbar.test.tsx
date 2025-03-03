@@ -23,7 +23,6 @@ describe("Navbar Component", () => {
 
   test("renders the correct class names", () => {
     render(<Navbar />);
-
     const navbarElement = screen.getByRole("navigation");
     expect(navbarElement).toHaveClass("navbar");
   });

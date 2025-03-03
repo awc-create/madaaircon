@@ -1,0 +1,81 @@
+/* ✅ Services Section */
+.servicesSection {
+    width: 100%;
+    padding: 80px 5%;
+    background: white;
+    text-align: center;
+  }
+  
+  /* ✅ Title */
+  .servicesSection h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #222;
+  }
+  
+  /* ✅ Flexbox for Icons */
+  .serviceIcons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+  }
+  
+  /* ✅ Individual Service Item */
+  .serviceItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* ✅ Circular Icon Wrapper */
+  .iconCircle {
+    width: 120px;
+    height: 120px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .iconCircle:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ✅ Icons */
+  .serviceIcon {
+    font-size: 3rem;
+    color: #555;
+  }
+  
+  /* ✅ Text Below Icons */
+  .serviceItem p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .serviceButton {
+    margin-top: 15px;
+  }
+  
+  /* ✅ Responsive Design */
+  @media (max-width: 768px) {
+    .serviceIcons {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+  
