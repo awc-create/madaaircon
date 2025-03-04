@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
 
         {/* ✅ Website Credit - AWC */}
         <p className={styles.awcCredit}>
-          Website created by <a href="https://awc.dev" target="_blank" rel="noopener noreferrer">AWC</a>
+          Website created by <a href="https://portfolio-one-phi-83.vercel.app/about" target="_blank" rel="noopener noreferrer">AWC</a>
         </p>
       </div>
     </footer>
