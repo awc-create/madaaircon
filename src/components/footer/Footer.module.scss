@@ -1,0 +1,86 @@
+/* ✅ Footer Base */
+.footer {
+  width: 100%;
+  background: #2C3E50; /* Dark footer background */
+  color: white;
+  padding: 50px 5%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ✅ Footer Content Wrapper */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ✅ Footer Links */
+.footerLinks {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.footerLinks a:hover {
+  color: #f3c623; /* Highlight color */
+}
+
+/* ✅ Social Icons */
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcons img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1); /* Makes icons white */
+  transition: transform 0.3s ease-in-out;
+}
+
+.socialIcons img:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ Copyright */
+.copyright {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ✅ AWC Credit */
+.awcCredit {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.awcCredit a {
+  color: #f3c623; /* Match highlight color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.awcCredit a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 768px) {
+  .footerLinks {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
