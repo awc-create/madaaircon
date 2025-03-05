@@ -11,6 +11,12 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false); // ✅ Mobile menu state
   const [dropdownOpen, setDropdownOpen] = useState(false); // ✅ Services dropdown state
 
+  // ✅ Close menu when clicking a link
+  const closeMenu = () => {
+    setIsOpen(false);
+    setDropdownOpen(false);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -28,12 +34,15 @@ const Navbar: React.FC = () => {
 
         {/* ✅ Desktop Navigation */}
         <ul className={styles.navLinks}>
-          <li
-            className={styles.dropdown}
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+          <li className={styles.dropdown}
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
           >
-            <Link href="/services">Services</Link>
+            {/* ✅ Services is Clickable */}
+            <Link href="/services" className={styles.servicesLink}>
+              Services
+            </Link>
+
             {/* ✅ Dropdown Menu (Desktop) */}
             {dropdownOpen && (
               <ul className={styles.dropdownMenu}>
@@ -63,28 +72,29 @@ const Navbar: React.FC = () => {
             {/* ✅ Mobile Dropdown */}
             <li className={styles.mobileDropdown}>
               <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-                Services <Icon icon="mdi:chevron-down" />
+                <Link href="/services" onClick={closeMenu}>Services</Link>
+                <Icon icon={dropdownOpen ? "mdi:chevron-up" : "mdi:chevron-down"} />
               </button>
               {dropdownOpen && (
                 <ul className={styles.mobileDropdownMenu}>
-                  <li><Link href="/services/electrical" onClick={() => setIsOpen(false)}>Electrical</Link></li>
-                  <li><Link href="/services/cooling" onClick={() => setIsOpen(false)}>Cooling Systems</Link></li>
-                  <li><Link href="/services/security" onClick={() => setIsOpen(false)}>Security</Link></li>
+                  <li><Link href="/services/electrical" onClick={closeMenu}>Electrical</Link></li>
+                  <li><Link href="/services/cooling" onClick={closeMenu}>Cooling Systems</Link></li>
+                  <li><Link href="/services/security" onClick={closeMenu}>Security</Link></li>
                 </ul>
               )}
             </li>
-            <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-            <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+            <li><Link href="/about" onClick={closeMenu}>About</Link></li>
+            <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
           </ul>
 
           {/* ✅ Mobile Book Now Button */}
           <div className={styles.bookNowMobile}>
-            <Button text="Book Now" href="/book" variant="primary" />
+            <Button text="Book Now" href="/book" variant="primary" onClick={closeMenu} />
           </div>
         </div>
 
-        {/* ✅ Overlay to close menu on click outside */}
-        {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
+        {/* ✅ Overlay to close menu when clicking outside */}
+        {isOpen && <div className={styles.overlay} onClick={closeMenu}></div>}
       </div>
     </nav>
   );

@@ -16,15 +16,18 @@
   width: 100%;
   max-width: 1200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* ✅ Aligns everything to the left */
   align-items: center;
+  gap: 20px;
 }
 
-/* ✅ Regular Navigation Links (Desktop) */
+/* ✅ Desktop Navigation */
 .navLinks {
   display: flex;
   gap: 30px;
   list-style: none;
+  align-items: center;
+  justify-content: flex-start; /* ✅ Aligns links to the left */
 }
 
 .navLinks li {
@@ -34,12 +37,31 @@
 .navLinks a {
   text-decoration: none;
   color: black;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   transition: color 0.3s ease;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
 }
 
 .navLinks a:hover {
+  color: #007bff;
+}
+
+/* ✅ Fix Services Link */
+.servicesLink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.servicesLink:hover {
   color: #007bff;
 }
 
@@ -50,7 +72,7 @@
 
 .dropdownMenu {
   position: absolute;
-  top: 100%; /* ✅ Instead of 40px, use 100% to align perfectly below */
+  top: 100%;
   left: 0;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -61,95 +83,119 @@
   flex-direction: column;
   width: 180px;
   opacity: 0;
-  transform: translateY(5px); /* ✅ Slight adjustment instead of large gap */
+  transform: translateY(5px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  pointer-events: none; /* ✅ Prevents accidental hovers when not active */
+  pointer-events: none;
 }
 
 .dropdown:hover .dropdownMenu {
   opacity: 1;
-  transform: translateY(0); /* ✅ No unnecessary movement */
+  transform: translateY(0);
   pointer-events: auto;
 }
 
-.dropdownMenu li {
-  padding: 8px 10px; /* ✅ Reduced padding for better hover */
-  text-align: left;
-}
-
-.dropdownMenu a {
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-  display: block; /* ✅ Expands clickable area */
-}
-
-.dropdownMenu a:hover {
-  color: #007bff;
-  background: rgba(0, 123, 255, 0.1);
-}
-
-/* ✅ Mobile Dropdown */
-.mobileDropdown {
-  text-align: left;
-}
-
-.mobileDropdown button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.mobileDropdownMenu {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding-left: 20px;
-}
-
-.mobileDropdownMenu li {
-  padding: 5px 0;
-}
-
-.mobileDropdownMenu a {
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-}
-
-.mobileDropdownMenu a:hover {
-  color: #007bff;
-}
-
-/* ✅ Side Navigation (Hidden by Default) */
+/* ✅ Side Navigation (Mobile) */
 .sideNav {
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -270px;
+  width: 270px;
   height: 100vh;
   background: white;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* ✅ Aligns all items to the left */
+  justify-content: flex-start;
   transition: right 0.3s ease-in-out;
   z-index: 1100;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .sideNav.open {
   right: 0;
 }
 
-/* ✅ Overlay (for closing when clicking outside) */
+/* ✅ Remove bullet points */
+.sideNavLinks {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  text-align: left; /* ✅ Aligns all links to the left */
+}
+
+.sideNavLinks li {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+}
+
+.sideNavLinks a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.sideNavLinks a:hover {
+  color: #007bff;
+}
+
+/* ✅ Mobile Dropdown */
+.mobileDropdown {
+  width: 100%;
+}
+
+.mobileDropdown button {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.mobileDropdownMenu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 5px 20px;
+}
+
+.mobileDropdownMenu li {
+  padding: 10px 0;
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.mobileDropdownMenu a {
+  text-decoration: none;
+  color: #444;
+  font-weight: normal;
+}
+
+.mobileDropdownMenu a:hover {
+  color: #007bff;
+}
+
+/* ✅ "Book Now" Button - Align Left */
+.bookNowMobile {
+  width: 100%;
+  padding: 20px;
+  text-align: left; /* ✅ Aligns button to the left */
+}
+
+/* ✅ Fix Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -159,14 +205,6 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   transition: opacity 0.3s ease-in-out;
-}
-
-/* ✅ Hamburger Menu Button (Hidden on Desktop) */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 /* ✅ Responsive for Mobile */
