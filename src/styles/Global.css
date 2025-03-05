@@ -18,7 +18,7 @@ html, body {
 
 /* ✅ Background Wrapper - Ensures Background Stays Behind */
 .background-wrapper {
-  position: fixed;  /* ✅ Ensures it stays in place */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,14 +27,14 @@ html, body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 500px;
-  opacity: 0.08; /* ✅ Makes it semi-transparent */
-  z-index: -1; /* ✅ Ensures background stays behind everything */
-  pointer-events: none; /* ✅ Prevents interaction issues */
+  opacity: 0.30;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ✅ Body Styling - Ensures Background Shows */
 body {
-  position: relative; /* ✅ Keep content properly layered */
+  position: relative;
 }
 
 /* ✅ Content Wrapper - Ensures Content is Above */
@@ -43,8 +43,8 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 5%;
-  position: relative; /* ✅ Ensures content stays above the background */
-  z-index: 10; /* ✅ Keeps content above */
+  position: relative;
+  z-index: 10;
 }
 
 /* ✅ Responsive Adjustments */
