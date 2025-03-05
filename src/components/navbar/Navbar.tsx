@@ -62,9 +62,23 @@ const Navbar: React.FC = () => {
           <ul className={styles.sideNavLinks}>
             {/* ✅ Mobile Dropdown */}
             <li className={styles.mobileDropdown}>
-              <button onClick={() => setDropdownOpen(!dropdownOpen)}>
-                Services <Icon icon="mdi:chevron-down" />
-              </button>
+              <div className={styles.mobileDropdownHeader}>
+                {/* ✅ Services is Clickable */}
+                <Link href="/services" onClick={() => setIsOpen(false)}>
+                  Services
+                </Link>
+                <button
+                  className={styles.dropdownToggle}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent navigation when clicking arrow
+                    setDropdownOpen(!dropdownOpen);
+                  }}
+                >
+                  <Icon icon={dropdownOpen ? "mdi:chevron-up" : "mdi:chevron-down"} />
+                </button>
+              </div>
+
+              {/* ✅ Dropdown Menu (Mobile) */}
               {dropdownOpen && (
                 <ul className={styles.mobileDropdownMenu}>
                   <li><Link href="/services/electrical" onClick={() => setIsOpen(false)}>Electrical</Link></li>
@@ -83,7 +97,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* ✅ Overlay to close menu on click outside */}
+        {/* ✅ Overlay to close menu when clicking outside */}
         {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
       </div>
     </nav>

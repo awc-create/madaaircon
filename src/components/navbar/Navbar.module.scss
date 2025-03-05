@@ -104,19 +104,23 @@
 /* 📱 MOBILE NAVIGATION */
 /* ======================= */
 
-/* ✅ Hamburger Button (Mobile Only) */
+/* ✅ Hide Hamburger on Desktop, Show on Mobile */
 .hamburger {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 2rem;
-  color: black;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1200;
+
+  @media (max-width: 768px) {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: black;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1200;
+  }
 }
 
 /* ✅ Side Navigation (Mobile) */
