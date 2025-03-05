@@ -1,4 +1,7 @@
-/* ✅ Navbar Base */
+/* ======================= */
+/* 🌍 GLOBAL NAVBAR STYLES */
+/* ======================= */
+
 .navbar {
   width: 100%;
   background: white;
@@ -20,7 +23,10 @@
   align-items: center;
 }
 
-/* ✅ Regular Navigation Links (Desktop) */
+/* ======================= */
+/* 💻 DESKTOP NAVIGATION */
+/* ======================= */
+
 .navLinks {
   display: flex;
   gap: 30px;
@@ -43,14 +49,14 @@
   color: #007bff;
 }
 
-/* ✅ Dropdown (Desktop) */
+/* ✅ Dropdown Menu (Desktop) */
 .dropdown {
   position: relative;
 }
 
 .dropdownMenu {
   position: absolute;
-  top: 100%; /* ✅ Instead of 40px, use 100% to align perfectly below */
+  top: 100%;
   left: 0;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -61,19 +67,19 @@
   flex-direction: column;
   width: 180px;
   opacity: 0;
-  transform: translateY(5px); /* ✅ Slight adjustment instead of large gap */
+  transform: translateY(5px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  pointer-events: none; /* ✅ Prevents accidental hovers when not active */
+  pointer-events: none;
 }
 
 .dropdown:hover .dropdownMenu {
   opacity: 1;
-  transform: translateY(0); /* ✅ No unnecessary movement */
+  transform: translateY(0);
   pointer-events: auto;
 }
 
 .dropdownMenu li {
-  padding: 8px 10px; /* ✅ Reduced padding for better hover */
+  padding: 8px 10px;
   text-align: left;
 }
 
@@ -81,7 +87,7 @@
   text-decoration: none;
   color: black;
   font-size: 1rem;
-  display: block; /* ✅ Expands clickable area */
+  display: block;
 }
 
 .dropdownMenu a:hover {
@@ -89,46 +95,31 @@
   background: rgba(0, 123, 255, 0.1);
 }
 
-/* ✅ Mobile Dropdown */
-.mobileDropdown {
-  text-align: left;
+/* ✅ Book Now Button (Desktop) */
+.bookNowDesktop {
+  display: block;
 }
 
-.mobileDropdown button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ======================= */
+/* 📱 MOBILE NAVIGATION */
+/* ======================= */
+
+/* ✅ Hamburger Button (Mobile Only) */
+.hamburger {
+  display: none;
   background: none;
   border: none;
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 10px;
-  font-weight: bold;
   cursor: pointer;
-}
-
-.mobileDropdownMenu {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding-left: 20px;
-}
-
-.mobileDropdownMenu li {
-  padding: 5px 0;
-}
-
-.mobileDropdownMenu a {
-  text-decoration: none;
+  font-size: 2rem;
   color: black;
-  font-size: 1rem;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1200;
 }
 
-.mobileDropdownMenu a:hover {
-  color: #007bff;
-}
-
-/* ✅ Side Navigation (Hidden by Default) */
+/* ✅ Side Navigation (Mobile) */
 .sideNav {
   position: fixed;
   top: 0;
@@ -139,17 +130,102 @@
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   transition: right 0.3s ease-in-out;
   z-index: 1100;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .sideNav.open {
   right: 0;
 }
 
-/* ✅ Overlay (for closing when clicking outside) */
+/* ✅ Align Mobile Navigation Links */
+.sideNavLinks {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.sideNavLinks li {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+}
+
+.sideNavLinks a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.sideNavLinks a:hover {
+  color: #007bff;
+}
+
+/* ✅ Mobile Dropdown */
+.mobileDropdown {
+  width: 100%;
+}
+
+.mobileDropdown button {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.mobileDropdownMenu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.mobileDropdownMenu li {
+  padding: 10px 0;
+  font-size: 0.8rem;
+}
+
+.mobileDropdownMenu a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.mobileDropdownMenu a:hover {
+  color: #007bff;
+}
+
+/* ✅ Fix "Book Now" Button in Mobile Menu */
+.bookNowMobile {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ======================= */
+/* 🔲 OVERLAY & RESPONSIVE */
+/* ======================= */
+
+/* ✅ Overlay (Background when Mobile Menu is Open) */
 .overlay {
   position: fixed;
   top: 0;
@@ -161,20 +237,10 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* ✅ Hamburger Menu Button (Hidden on Desktop) */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 /* ✅ Responsive for Mobile */
 @media (max-width: 768px) {
   .hamburger {
-    display: block;
-    font-size: 1.8rem;
-    color: black;
+    display: block; /* ✅ Only shows on mobile */
   }
 
   .navLinks {
