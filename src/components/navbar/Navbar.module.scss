@@ -43,24 +43,96 @@
   color: #007bff;
 }
 
-/* ✅ Book Now Button (Desktop) */
-.bookNowDesktop {
-  display: block;
+/* ✅ Dropdown (Desktop) */
+.dropdown {
+  position: relative;
 }
 
-/* ✅ Hamburger Menu Button (Hidden on Desktop) */
-.hamburger {
-  display: none;
+.dropdownMenu {
+  position: absolute;
+  top: 100%; /* ✅ Instead of 40px, use 100% to align perfectly below */
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  opacity: 0;
+  transform: translateY(5px); /* ✅ Slight adjustment instead of large gap */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none; /* ✅ Prevents accidental hovers when not active */
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  transform: translateY(0); /* ✅ No unnecessary movement */
+  pointer-events: auto;
+}
+
+.dropdownMenu li {
+  padding: 8px 10px; /* ✅ Reduced padding for better hover */
+  text-align: left;
+}
+
+.dropdownMenu a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  display: block; /* ✅ Expands clickable area */
+}
+
+.dropdownMenu a:hover {
+  color: #007bff;
+  background: rgba(0, 123, 255, 0.1);
+}
+
+/* ✅ Mobile Dropdown */
+.mobileDropdown {
+  text-align: left;
+}
+
+.mobileDropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: none;
   border: none;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
   cursor: pointer;
+}
+
+.mobileDropdownMenu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.mobileDropdownMenu li {
+  padding: 5px 0;
+}
+
+.mobileDropdownMenu a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.mobileDropdownMenu a:hover {
+  color: #007bff;
 }
 
 /* ✅ Side Navigation (Hidden by Default) */
 .sideNav {
   position: fixed;
   top: 0;
-  right: -250px; /* Hidden initially */
+  right: -250px;
   width: 250px;
   height: 100vh;
   background: white;
@@ -74,37 +146,7 @@
 }
 
 .sideNav.open {
-  right: 0; /* Slide in */
-}
-
-/* ✅ Side Navigation Links */
-.sideNavLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  list-style: none;
-}
-
-.sideNavLinks li {
-  list-style: none;
-}
-
-.sideNavLinks a {
-  text-decoration: none;
-  color: black;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.sideNavLinks a:hover {
-  color: #007bff;
-}
-
-/* ✅ Book Now Button (Mobile) */
-.bookNowMobile {
-  display: none;
-  margin-top: 20px;
+  right: 0;
 }
 
 /* ✅ Overlay (for closing when clicking outside) */
@@ -119,6 +161,14 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+/* ✅ Hamburger Menu Button (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* ✅ Responsive for Mobile */
 @media (max-width: 768px) {
   .hamburger {
@@ -128,14 +178,14 @@
   }
 
   .navLinks {
-    display: none; /* Hide regular nav links */
+    display: none;
   }
 
   .bookNowDesktop {
-    display: none; /* Hide desktop button */
+    display: none;
   }
 
   .bookNowMobile {
-    display: block; /* Show mobile button inside menu */
+    display: block;
   }
 }

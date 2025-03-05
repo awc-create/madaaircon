@@ -1,0 +1,124 @@
+/* ✅ Services Page Layout */
+.servicesPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 5%;
+    padding-top: 10%;
+    text-align: center;
+  }
+  
+  /* ✅ Hero Section */
+  .hero {
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: #2C3E50; /* ✅ Slate Blue */
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  /* ✅ Services Container */
+  .servicesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  /* ✅ Individual Service Card */
+  .serviceCard {
+    background: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid #ddd;
+  }
+  
+  .serviceCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* ✅ Service Header */
+  .serviceHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .serviceIcon {
+    font-size: 2.5rem;
+    color: #2C3E50;
+  }
+  
+  /* ✅ Service Description */
+  .serviceDescription {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #444;
+  }
+  
+  /* ✅ Sub-Service Section */
+  .subServices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .subService {
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .subService h3 {
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .subService p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* ✅ Call-to-Action Button */
+  .ctaButton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2C3E50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    background: #1A2B40;
+  }
+  
+  /* ✅ Responsive */
+  @media (max-width: 768px) {
+    .servicesContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .serviceCard {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  

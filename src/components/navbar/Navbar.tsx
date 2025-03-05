@@ -8,12 +8,13 @@ import Button from "../button/Button";
 import styles from "./Navbar.module.scss";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // ✅ Mobile menu state
+  const [dropdownOpen, setDropdownOpen] = useState(false); // ✅ Services dropdown state
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
-        {/* Logo */}
+        {/* ✅ Logo */}
         <Link href="/" className={styles.logoContainer}>
           <Image
             src="/assets/logo/logo.png"
@@ -25,38 +26,64 @@ const Navbar: React.FC = () => {
           />
         </Link>
 
-        {/* Regular Navigation Links (Visible on Desktop) */}
+        {/* ✅ Desktop Navigation */}
         <ul className={styles.navLinks}>
-          <li><Link href="/services">Services</Link></li>
+          <li
+            className={styles.dropdown}
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <Link href="/services">Services</Link>
+            {/* ✅ Dropdown Menu (Desktop) */}
+            {dropdownOpen && (
+              <ul className={styles.dropdownMenu}>
+                <li><Link href="/services/electrical">Electrical</Link></li>
+                <li><Link href="/services/cooling">Cooling Systems</Link></li>
+                <li><Link href="/services/security">Security</Link></li>
+              </ul>
+            )}
+          </li>
           <li><Link href="/about">About</Link></li>
           <li><Link href="/contact">Contact</Link></li>
         </ul>
 
-        {/* Book Now Button (Desktop Only) */}
+        {/* ✅ Book Now Button (Desktop) */}
         <div className={styles.bookNowDesktop}>
           <Button text="Book Now" href="/book" variant="primary" />
         </div>
 
-        {/* Hamburger Menu Button (Mobile Only) */}
+        {/* ✅ Mobile Hamburger Button */}
         <button className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
           <Icon icon={isOpen ? "mdi:close" : "mdi:menu"} width={30} height={30} />
         </button>
 
-        {/* Side Navigation (Mobile) */}
+        {/* ✅ Side Navigation (Mobile) */}
         <div className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
           <ul className={styles.sideNavLinks}>
-            <li><Link href="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
+            {/* ✅ Mobile Dropdown */}
+            <li className={styles.mobileDropdown}>
+              <button onClick={() => setDropdownOpen(!dropdownOpen)}>
+                Services <Icon icon="mdi:chevron-down" />
+              </button>
+              {dropdownOpen && (
+                <ul className={styles.mobileDropdownMenu}>
+                  <li><Link href="/services/electrical" onClick={() => setIsOpen(false)}>Electrical</Link></li>
+                  <li><Link href="/services/cooling" onClick={() => setIsOpen(false)}>Cooling Systems</Link></li>
+                  <li><Link href="/services/security" onClick={() => setIsOpen(false)}>Security</Link></li>
+                </ul>
+              )}
+            </li>
             <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
             <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
           </ul>
 
-          {/* Book Now Button (Mobile) */}
+          {/* ✅ Mobile Book Now Button */}
           <div className={styles.bookNowMobile}>
             <Button text="Book Now" href="/book" variant="primary" />
           </div>
         </div>
 
-        {/* Overlay (Click to Close Mobile Menu) */}
+        {/* ✅ Overlay to close menu on click outside */}
         {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
       </div>
     </nav>
