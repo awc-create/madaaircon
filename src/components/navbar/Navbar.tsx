@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import Button from "../button/Button";
 import styles from "./Navbar.module.scss";
 
 const Navbar: React.FC = () => {

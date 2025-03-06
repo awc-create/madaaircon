@@ -16,7 +16,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const postcodeRegex = /([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})/;
 
 const ContactForm: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<string>("");
+  const [setSelectedService] = useState<string>("");
   const [subServices, setSubServices] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
   return (
     <div className={styles.contactContainer}>
       <h1>Contact Us</h1>
-      <p>Fill in the form below and we'll get back to you as soon as possible.</p>
+      <p>Fill in the form below and we will get back to you as soon as possible.</p>
 
       <form onSubmit={handleSubmit} className={styles.contactForm}>
         {/* Name */}

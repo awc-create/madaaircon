@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed" });
 
   const form = new formidable.IncomingForm();
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, async (err, fields) => {
     if (err) return res.status(500).json({ error: "Form Parsing Error" });
 
     const { name, email, phone, postcode, subject, subService, message } = fields;
