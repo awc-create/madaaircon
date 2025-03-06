@@ -47,10 +47,6 @@ const Navbar: React.FC = () => {
           <li><Link href="/contact">Contact</Link></li>
         </ul>
 
-        {/* ✅ Book Now Button (Desktop) */}
-        <div className={styles.bookNowDesktop}>
-          <Button text="Book Now" href="/book" variant="primary" />
-        </div>
 
         {/* ✅ Mobile Hamburger Button */}
         <button className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
@@ -90,11 +86,6 @@ const Navbar: React.FC = () => {
             <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
             <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
           </ul>
-
-          {/* ✅ Mobile Book Now Button */}
-          <div className={styles.bookNowMobile}>
-            <Button text="Book Now" href="/book" variant="primary" />
-          </div>
         </div>
 
         {/* ✅ Overlay to close menu when clicking outside */}
