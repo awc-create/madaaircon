@@ -1,111 +1,184 @@
-/* 🌍 Global Styles for About Page */
+/* Global container */
 .aboutContainer {
     width: 100%;
     min-height: 100vh;
     padding: 80px 5%;
-    padding-top: 10%; /* ✅ Ensures the content doesn't overlap with navbar */
+    padding-top: 10%;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
-/* 🏆 Titles - Scoped for LightningCSS Compatibility */
-.aboutContainer h1, 
-.aboutContainer h2, 
-.aboutContainer h3 {
-    margin-bottom: 25px; /* ✅ Adds space between title & content below */
-}
-
-/* 🏆 Hero Section */
+/* Hero Section */
 .heroSection {
     display: flex;
     align-items: center;
-    gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
     text-align: left;
-    margin-bottom: 50px; /* ✅ Space between sections */
+    gap: 30px;
+    margin-bottom: 50px;
+    padding: 50px;
+    background: linear-gradient(135deg, #f5f5f5, #e3e3e3);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.profileImage img {
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 150px; /* Adjust as needed */
+.experienceContent {
+    width: 60%;
 }
 
-/* 🏅 Certifications Section */
-.certificationsSection {
-    text-align: center;
-    margin-bottom: 50px; /* ✅ Space before next section */
+.experienceContent h1 {
+    font-size: 2.8rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.certifications {
+.experienceContent p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.logoContainer img {
+    width: 400px; /* ✅ Adjust logo size */
+    height: auto;
+}
+
+/* Meet Our Lead Engineer */
+.engineerSection {
     display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.leftContent {
+    width: 50%;
+}
+
+.leftContent h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.leftContent p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Certifications */
+.qualifications {
+    width: 50%;
+    background: rgba(245, 245, 245, 0.8);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.qualifications h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.certGrid {
+    display: flex;
+    gap: 20px;
     justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
 }
 
-.certItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.certCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 180px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
 }
 
-.certItem p {
-    margin-top: 10px;
+.certCard:hover {
+    transform: translateY(-5px);
+}
+
+.certCard img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.certCard p {
+    font-size: 1rem;
     font-weight: bold;
+    color: #333;
 }
 
-/* ⚡ Experience & Expertise */
-.experienceSection {
-    margin-bottom: 50px; /* ✅ Space before next section */
-}
-
-.experienceSection ul {
-    list-style: none;
-    padding: 0;
-}
-
-.experienceSection li {
-    padding: 10px 0;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #ddd;
-}
-
-/* 📩 Call to Action */
+/* Call-to-Action */
 .ctaSection {
     text-align: center;
-    margin-top: 50px; /* ✅ Ensures space from the section above */
+    margin-top: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ctaSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .ctaSection p {
-    margin-bottom: 20px; /* ✅ Adds space between text and button */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
+
 .ctaButton {
     display: inline-block;
-    padding: 12px 24px;
-    background: #007bff;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 5px;
+    padding: 14px 28px;
+    background: #fff;
+    color: #007bff;
+    font-size: 1.3rem;
+    border-radius: 8px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .ctaButton:hover {
     background: #0056b3;
+    color: white;
 }
 
-/* ✅ Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .heroSection {
-        padding-top: 25%;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .experienceContent,
+    .logoContainer {
+        width: 100%;
+    }
+
+    .engineerSection {
         flex-direction: column;
         text-align: center;
     }
 
-    .certifications {
+    .leftContent,
+    .qualifications {
+        width: 100%;
+    }
+
+    .certGrid {
         flex-direction: column;
-        gap: 20px;
     }
 }

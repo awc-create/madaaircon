@@ -6,72 +6,61 @@ import styles from "./About.module.scss";
 const AboutPage = () => {
   return (
     <div className={styles.aboutContainer}>
-      {/* Hero Section */}
+      {/* Hero Section with Experience & Logo */}
       <section className={styles.heroSection}>
-        <div className={styles.profileImage}>
-          <Image
-            src="/assets/placeholder-profile.webp"
-            alt="Lead Engineer"
-            width={400}
-            height={200}
-          />
-        </div>
-        <div className={styles.heroText}>
-          <h1>Meet Our Lead Engineer</h1>
+        <div className={styles.experienceContent}>
+          <h1>About Us</h1>
           <p>
-            With over 15 years of experience in electrical engineering and cooling systems, 
-            our lead engineer is a certified expert in designing, installing, and maintaining 
-            high-efficiency solutions.
+            With years of expertise in facility management, we specialize in designing, 
+            installing, and maintaining high-efficiency electrical and cooling solutions.
+          </p>
+          <p>
+            Our expert team ensures optimal performance in **residential, commercial, and industrial projects** 
+            with a commitment to innovation and sustainability.
           </p>
         </div>
+
+        <div className={styles.logoContainer}>
+          <Image
+            src="/assets/logo/logo-full.png" 
+            alt="Madaaircon Logo"
+            width={400}
+            height={400}
+            priority
+          />
+        </div>
       </section>
 
-      {/* Certifications Section */}
-      <section className={styles.certificationsSection}>
-        <h2>Certifications & Qualifications</h2>
-        <div className={styles.certifications}>
-          <div className={styles.certItem}>
-            <Image
-              src="/public/assets/placeholder-cert.webp" // ✅ Correct placeholder path
-              alt="Certification 1"
-              width={100}
-              height={100}
-            />
-            <p>Certified Electrical Engineer (CEE)</p>
-          </div>
-          <div className={styles.certItem}>
-            <Image
-              src="/public/assets/placeholder-cert.webp" // ✅ Correct placeholder path
-              alt="Certification 2"
-              width={100}
-              height={100}
-            />
-            <p>HVAC & Cooling Systems Certification</p>
-          </div>
-          <div className={styles.certItem}>
-            <Image
-              src="/public/assets/placeholder-cert.webp" // ✅ Correct placeholder path
-              alt="Certification 3"
-              width={100}
-              height={100}
-            />
-            <p>Safety & Compliance Accreditation</p>
+      {/* Meet Our Lead Engineer & Qualifications */}
+      <section className={styles.engineerSection}>
+        <div className={styles.leftContent}>
+          <h2>Meet Our Lead Engineer</h2>
+          <p>
+            With **15+ years of industry experience**, our lead engineer has been 
+            instrumental in delivering high-quality solutions across multiple industries.
+          </p>
+        </div>
+
+        <div className={styles.qualifications}>
+          <h2>Certifications</h2>
+          <div className={styles.certGrid}>
+            <div className={styles.certCard}>
+              <Image src="/icons/cert1.svg" alt="Certification 1" width={50} height={50} />
+              <p>Certified Electrical Engineer</p>
+            </div>
+            <div className={styles.certCard}>
+              <Image src="/icons/cert2.svg" alt="Certification 2" width={50} height={50} />
+              <p>HVAC & Cooling Systems Expert</p>
+            </div>
+            <div className={styles.certCard}>
+              <Image src="/icons/cert3.svg" alt="Certification 3" width={50} height={50} />
+              <p>Safety & Compliance Accreditation</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Experience & Expertise */}
-      <section className={styles.experienceSection}>
-        <h2>Experience & Expertise</h2>
-        <ul>
-          <li>15+ years in Electrical & Cooling Systems Engineering</li>
-          <li>Specialized in Residential & Commercial Installations</li>
-          <li>Certified in Advanced Energy-Efficient Systems</li>
-          <li>Project Experience in High-Rise and Industrial Facilities</li>
-        </ul>
-      </section>
-
-      {/* Call to Action */}
+      {/* Call-to-Action */}
       <section className={styles.ctaSection}>
         <h2>Work With an Expert</h2>
         <p>Get in touch today for a consultation on your electrical or cooling system needs.</p>
