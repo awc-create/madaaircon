@@ -38,10 +38,7 @@ export default function ElectricalClient() {
   return (
     <main className={styles.electricalPage}>
       <div className={styles.hero}>
-        <h1>Electrical Services</h1>
-        <h2 className={styles.subheading}>
-          Certified Electrical Services in London & Across England
-        </h2>
+        <h1>Certified Electrical Services in London & Across England</h1>
         <p>
           Our team of fully accredited electricians offers professional electrical services for homes,
           businesses, and industrial sites in London and throughout England. From rewiring and smart home setup
