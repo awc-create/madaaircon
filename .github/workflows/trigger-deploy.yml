@@ -31,5 +31,4 @@ jobs:
             "repository_name": "${{ github.event.repository.name }}",
             "branch": "${{ github.ref_name }}"
           }}' \
-          https://api.github.com/repos/awc-create/awc-multi-site-cicd/dispatches
-
+          https://api.github.com/repos/awc-create/multi-site-oracle-cicd/dispatches
