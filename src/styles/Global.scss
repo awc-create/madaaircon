@@ -35,18 +35,6 @@ html, body {
   --gutter: 5%;
 }
 
-/* Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-text: #e0e0e0;
-    --color-primary: #90caf9;
-    --color-accent: #bb86fc;
-    --color-bg-light: #1e1e1e;
-    --color-overlay: rgba(0,0,0,0.6);
-  }
-}
-
 /* Body colors */
 body {
   background: var(--color-bg);
@@ -70,5 +58,4 @@ body {
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 0 var(--gutter);
-
 }
