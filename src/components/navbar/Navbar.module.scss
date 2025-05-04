@@ -1,261 +1,107 @@
-/* ======================= */
-/* 🌍 GLOBAL NAVBAR STYLES */
-/* ======================= */
-
 .navbar {
-  width: 100%;
-  background: white;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbarContainer {
+  top: 0; left: 0;
   width: 100%;
-  max-width: 1200px;
+  height: var(--navbar-height);
+  background: var(--color-bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  z-index: 1000;
+}
+
+.inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-/* ======================= */
-/* 💻 DESKTOP NAVIGATION */
-/* ======================= */
+.logo { display: block; }
 
-.navLinks {
+.links {
   display: flex;
-  gap: 30px;
+  gap: 2rem;
   list-style: none;
 }
 
-.navLinks li {
-  list-style: none;
-}
-
-.navLinks a {
+.links a {
   text-decoration: none;
-  color: black;
-  font-size: 1rem;
+  color: var(--color-text);
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color .2s;
 }
+.links a:hover { color: var(--color-accent); }
 
-.navLinks a:hover {
-  color: #007bff;
-}
+.dropdown { position: relative; }
 
-/* ✅ Dropdown Menu (Desktop) */
-.dropdown {
-  position: relative;
-}
-
-.dropdownMenu {
+.menu {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  padding: 10px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  width: 180px;
+  top: 100%; left: 0;
+  background: var(--color-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  border-radius: 4px;
   opacity: 0;
   transform: translateY(5px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
   pointer-events: none;
+  transition: all .2s;
 }
-
-.dropdown:hover .dropdownMenu {
+.show {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+.menu li { padding: .5rem 1rem; }
+.menu a:hover { background: rgba(0,123,255,0.1); }
 
-.dropdownMenu li {
-  padding: 8px 10px;
-  text-align: left;
-}
-
-.dropdownMenu a {
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-  display: block;
-}
-
-.dropdownMenu a:hover {
-  color: #007bff;
-  background: rgba(0, 123, 255, 0.1);
-}
-
-/* ✅ Book Now Button (Desktop) */
-.bookNowDesktop {
-  display: block;
-}
-
-/* ======================= */
-/* 📱 MOBILE NAVIGATION */
-/* ======================= */
-
-/* ✅ Hide Hamburger on Desktop, Show on Mobile */
 .hamburger {
   display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 2rem;
-    color: black;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1200;
-  }
-}
-
-/* ✅ Side Navigation (Mobile) */
-.sideNav {
-  position: fixed;
-  top: 0;
-  right: -250px;
-  width: 250px;
-  height: 100vh;
-  background: white;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  transition: right 0.3s ease-in-out;
-  z-index: 1100;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.sideNav.open {
-  right: 0;
-}
-
-/* ✅ Align Mobile Navigation Links */
-.sideNavLinks {
-  width: 100%;
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.sideNavLinks li {
-  width: 100%;
-  padding: 15px 20px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom: 1px solid #eee;
-}
-
-.sideNavLinks a {
-  text-decoration: none;
-  color: black;
-  display: block;
-  font-size: 1.2rem;
-  width: 100%;
-}
-
-.sideNavLinks a:hover {
-  color: #007bff;
-}
-
-/* ✅ Mobile Dropdown */
-.mobileDropdown {
-  width: 100%;
-}
-
-.mobileDropdown button {
-  width: 100%;
   background: none;
   border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .links { display: none; }
+  .hamburger { display: block; }
+}
+
+.mobileNav {
+  position: fixed;
+  top: var(--navbar-height);
+  right: -100%;
+  width: 250px;
+  height: calc(100vh - var(--navbar-height));
+  background: var(--color-bg);
+  box-shadow: -4px 0 10px rgba(0,0,0,.1);
+  transition: right .3s;
+  z-index: 999;
+}
+.open { right: 0; }
+
+.mobileNav ul { list-style: none; padding: 1rem; }
+.mobileNav li { margin-bottom: 1rem; }
+.mobileNav a,
+.mobileToggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 15px 20px;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
 }
 
-.mobileDropdownMenu {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding-left: 20px;
-}
+.mobileMenu { padding-left: 1rem; }
+.mobileMenu li { margin: .5rem 0; }
 
-.mobileDropdownMenu li {
-  padding: 10px 0;
-  font-size: 0.8rem;
-}
-
-.mobileDropdownMenu a {
-  text-decoration: none;
-  color: black;
-  font-weight: normal;
-  font-size: 0.8rem;
-}
-
-.mobileDropdownMenu a:hover {
-  color: #007bff;
-}
-
-/* ✅ Fix "Book Now" Button in Mobile Menu */
-.bookNowMobile {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-}
-
-/* ======================= */
-/* 🔲 OVERLAY & RESPONSIVE */
-/* ======================= */
-
-/* ✅ Overlay (Background when Mobile Menu is Open) */
-.overlay {
+.backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* ✅ Responsive for Mobile */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block; /* ✅ Only shows on mobile */
-  }
-
-  .navLinks {
-    display: none;
-  }
-
-  .bookNowDesktop {
-    display: none;
-  }
-
-  .bookNowMobile {
-    display: block;
-  }
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 900;
 }

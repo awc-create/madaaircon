@@ -1,0 +1,74 @@
+/* ======================= */
+/* 🌐 GLOBAL RESET & BASE  */
+/* ======================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ======================= */
+/* 🎨 CSS VARIABLES        */
+/* ======================= */
+:root {
+  /* Color Palette */
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-primary: #2C3E50;
+  --color-accent: #007bff;
+  --color-bg-light: #fafafa;
+  --color-overlay: rgba(0,0,0,0.35);
+
+  /* Layout */
+  --navbar-height: 70px;
+  --max-content-width: 1200px;
+  --gutter: 5%;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-text: #e0e0e0;
+    --color-primary: #90caf9;
+    --color-accent: #bb86fc;
+    --color-bg-light: #1e1e1e;
+    --color-overlay: rgba(0,0,0,0.6);
+  }
+}
+
+/* Body colors */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  position: relative;
+}
+
+/* Background watermark */
+.background-wrapper {
+  position: fixed;
+  inset: 0;
+  background: url("/assets/logo/logo-full.png") no-repeat center/500px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Centered page container */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+
+}

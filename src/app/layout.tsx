@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
+import "@/styles/Global.scss";
 import Navbar from "@/components/navbar/Navbar";
+import Hero from "@/components/home/hero/Hero";
 import Footer from "@/components/footer/Footer";
-import "@/styles/Global.css";
 
 export const metadata: Metadata = {
   title: "Madaaircon Website",
-  description: "Website Showcasing Electrical and Cooling Systems Contracting",
+  description: "Electrical & Cooling Systems Contracting",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <div className="background-wrapper"></div>
+        <div className="background-wrapper" />
         <Navbar />
+        {/* Hero outside .container for true full-bleed */}
         <main className="container">{children}</main>
         <Footer />
       </body>

@@ -1,124 +1,127 @@
-/* ✅ Services Page Layout */
 .servicesPage {
-    width: 100%;
-    min-height: 100vh;
-    padding: 80px 5%;
-    padding-top: 10%;
-    text-align: center;
-  }
-  
-  /* ✅ Hero Section */
+  padding: 4rem 5%;
+  padding-top: 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+  /* Hero */
   .hero {
-    max-width: 800px;
-    margin: 0 auto 50px;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.15rem;
+      color: #555;
+    }
   }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-    color: #2C3E50; /* ✅ Slate Blue */
+
+  /* Cards grid */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
   }
-  
-  .hero p {
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  /* ✅ Services Container */
-  .servicesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  /* ✅ Individual Service Card */
-  .serviceCard {
-    background: white;
-    width: 350px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-    border: 2px solid #ddd;
-  }
-  
-  .serviceCard:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* ✅ Service Header */
-  .serviceHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .serviceIcon {
-    font-size: 2.5rem;
-    color: #2C3E50;
-  }
-  
-  /* ✅ Service Description */
-  .serviceDescription {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #444;
-  }
-  
-  /* ✅ Sub-Service Section */
-  .subServices {
+
+  /* Individual card */
+  .card {
+    background: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-  }
-  
-  .subService {
-    background: #f3f3f3;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
-  }
-  
-  .subService h3 {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  .subService p {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  /* ✅ Call-to-Action Button */
-  .ctaButton {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: #2C3E50;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  }
-  
-  .ctaButton:hover {
-    background: #1A2B40;
-  }
-  
-  /* ✅ Responsive */
-  @media (max-width: 768px) {
-    .servicesContainer {
-      flex-direction: column;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .header {
+      display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+
+      svg {
+        color: #2c3e50;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+      }
     }
-  
-    .serviceCard {
-      width: 100%;
-      max-width: 400px;
+
+    .description {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 0.5rem;
+
+      li h3 {
+        font-size: 1.05rem;
+        color: #333;
+        font-weight: 500;
+      }
+    }
+
+    .learnMore {
+      margin-top: auto;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      background: #3871c1;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #2c5aa0;
+      }
     }
   }
-  
+
+  /* Call to Action */
+  .cta {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      max-width: 600px;
+    }
+  }
+
+  /* Responsive tweak */
+  @media (max-width: 768px) {
+    padding: 2rem 3%;
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .cta p {
+      font-size: 1rem;
+    }
+  }
+}

@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
         <div className={styles.footerLinks}>
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/terms-of-service">Terms of Service</Link>
-          <Link href="/careers">Careers</Link>
           <Link href="/faq">FAQs</Link>
           <Link href="/contact">Contact Us</Link>
         </div>
@@ -36,7 +35,7 @@ const Footer: React.FC = () => {
 
         {/* ✅ Website Credit - AWC */}
         <p className={styles.awcCredit}>
-          Website created by <a href="https://portfolio-one-phi-83.vercel.app/about" target="_blank" rel="noopener noreferrer">AWC</a>
+          Website created by <a href="adaptiveworks.net" target="_blank" rel="noopener noreferrer">AWC</a>
         </p>
       </div>
     </footer>

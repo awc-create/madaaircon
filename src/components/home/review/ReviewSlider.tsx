@@ -23,9 +23,14 @@ const reviews = [
     review: "Very satisfied with the installation. Highly recommend!",
   },
   {
-    name: "Michael Smith",
+    name: "Ayaan Ali",
     rating: 5,
-    review: "Top-notch quality and customer service!",
+    review: "The technicians were punctual and did a fantastic job.",
+  },
+  {
+    name: "Mohamed Yusuf",
+    rating: 4,
+    review: "Great quality and friendly staff—would use their services again!",
   },
 ];
 
@@ -39,30 +44,27 @@ const ReviewSlider: React.FC = () => {
     arrows: false,
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, index) => (
+  const renderStars = (rating: number) =>
+    Array.from({ length: 5 }, (_, i) => (
       <Icon
-        key={index}
-        icon={index < rating ? "mdi:star" : "mdi:star-outline"}
+        key={i}
+        icon={i < rating ? "mdi:star" : "mdi:star-outline"}
         width="24"
         height="24"
         style={{ color: "#FFD700" }}
-        data-testid="star-icon"
+        aria-hidden="true"
       />
     ));
-  };
 
   return (
-    <section className={styles.reviewSection}>
-      <h2>What Our Clients Say</h2>
-      <Slider {...settings} className={styles.slider} data-testid="mock-slider">
-        {reviews.map((review, index) => (
-          <div key={index} className={styles.reviewBox}>
-            <div className={styles.stars}>{renderStars(review.rating)}</div>
-            <p className={styles.reviewText}>
-              &quot;{review.review}&quot;
-            </p>
-            <p className={styles.reviewerName}>- {review.name}</p>
+    <section className={styles.reviewSection} aria-labelledby="reviews-heading">
+      <h2 id="reviews-heading">What Our Clients Say</h2>
+      <Slider {...settings} className={styles.slider}>
+        {reviews.map((r, idx) => (
+          <div key={idx} className={styles.reviewBox}>
+            <div className={styles.stars}>{renderStars(r.rating)}</div>
+            <p className={styles.reviewText}>&quot;{r.review}&quot;</p>
+            <p className={styles.reviewerName}>— {r.name}</p>
           </div>
         ))}
       </Slider>

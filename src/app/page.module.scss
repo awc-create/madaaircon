@@ -1,136 +1,53 @@
-/* ✅ Home Page Structure */
 .homeContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 100px; /* ✅ Ensures content starts below the navbar */
-}
+  background-color: var(--color-bg);
+  /* ↓ remove this padding-top completely ↓ */
+  /* padding-top: 10%; */
 
-.heroSection, .servicesSection {
-  background: rgba(255, 255, 255, 0.95);
-  position: relative;
-  z-index: 1;
-}
-
-/* ✅ HERO SECTION - Split Layout */
-.heroSection {
-  width: 100%;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* ✅ Splits text & image */
-  text-align: left;
-  background: white;
-  padding: 0 5%;
-}
-
-/* ✅ Hero Text - Left Side */
-.heroContent {
-  flex: 1; /* ✅ Takes half the space */
-  max-width: 600px;
-}
-
-.heroContent h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.heroContent p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-/* ✅ Hero Image - Right Side */
-.heroImageContainer {
-  flex: 1; /* ✅ Takes half the space */
-  display: flex;
-  justify-content: flex-end;
-}
-
-.heroImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* ✅ Push Sections Below the Hero */
-.sectionsContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-top: 60px;
-}
-
-/* ✅ Each Section is a Separate Block */
-.sectionContainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background: white;
-  min-height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* ✅ Individual Section Styles */
-.servicesSection {
-  background: #F3F4F6;
-}
-
-.aboutSection {
-  background: #E5E7EB;
-}
-
-.projectsSection {
-  background: #D1D5DB;
-}
-
-.contactSection {
-  background: #d7d8d9;
-  color: white;
-}
-
-/* ✅ Responsive Adjustments */
-@media (max-width: 1024px) {
-  .heroSection {
-    flex-direction: column; /* ✅ Stack on tablets */
-    text-align: center;
-  }
-  
-  .heroContent {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .heroImageContainer {
-    justify-content: center;
+  /* ─── SECTIONS ────────────────────────────────────────────────────────── */
+  .sectionsContainer {
     width: 100%;
-  }
-
-  .heroImage {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .homeContainer {
-    padding-top: 50%; /* ✅ Increased space for mobile */
-  }
-
-  .heroSection {
-    padding-top: 20px;
-    height: auto;
+    display: flex;
     flex-direction: column;
+    gap: 40px;
+    padding: 60px 0;  /* leave this for spacing below the hero */
+
+    .sectionContainer {
+      width: 100%;
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background: var(--color-bg-light);
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .servicesSection { background: #F3F4F6; }
+    .aboutSection    { background: #E5E7EB; }
+    .projectsSection { background: #D1D5DB; }
+    .contactSection {
+      background: #d7d8d9;
+      color: var(--color-bg);
+    }
   }
 
-  .heroImage {
-    width: 100%;
+  /* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .sectionsContainer .sectionContainer {
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sectionsContainer .sectionContainer {
+      max-width: 100%;
+    }
   }
 }

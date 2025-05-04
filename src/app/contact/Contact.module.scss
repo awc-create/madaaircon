@@ -1,13 +1,22 @@
-/* 🌍 Contact Page Styles */
 .contactContainer {
   max-width: 800px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 10% 20px 40px; /* added 10% top padding */
   text-align: center;
-  margin-top: 10vh;
 }
 
-/* 📝 Form Styling */
+/* clickable header links */
+.contactLink {
+  color: #3871c1;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.contactLink:hover {
+  color: #2c5aa0;
+}
+
+/* form layout */
 .contactForm {
   display: flex;
   flex-direction: column;
@@ -15,14 +24,14 @@
   margin-top: 20px;
 }
 
-/* ✅ Labels */
+/* labels */
 .contactForm label {
   font-size: 1rem;
   font-weight: bold;
   text-align: left;
 }
 
-/* ✅ Input Fields */
+/* inputs/selects/textarea */
 .contactForm input,
 .contactForm select,
 .contactForm textarea {
@@ -33,21 +42,19 @@
   font-size: 1rem;
 }
 
-/* ✅ Textarea */
-.contactForm textarea {
-  resize: vertical;
+/* error text */
+.error {
+  color: #e63946;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  text-align: left;
 }
 
-/* ✅ Attachments */
-.contactForm .fileInput {
-  margin-top: 10px;
-}
-
-/* ✅ Submit Button */
-.contactForm .submitButton {
+/* submit button */
+.submitButton {
   width: 100%;
   padding: 12px;
-  background: #007bff;
+  background: #3871c1;
   color: white;
   font-size: 1.2rem;
   border: none;
@@ -55,15 +62,13 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
-.contactForm .submitButton:hover {
-  background: #0056b3;
+.submitButton:hover {
+  background: #2c5aa0;
 }
 
-/* 📱 Responsive */
+/* responsive */
 @media (max-width: 600px) {
   .contactContainer {
-    width: 100%;
-    padding: 50px 15px;
+    padding: 10% 15px 30px;
   }
 }

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Icon } from "@iconify/react";
+import Button from "@/components/button/Button";
 import styles from "./Services.module.scss";
 
 const services = [
@@ -9,72 +10,71 @@ const services = [
     id: "electrical",
     title: "Electrical Solutions",
     icon: "mdi:lightning-bolt-circle",
-    description: "Comprehensive electrical solutions for residential, commercial, and industrial needs.",
-    subServices: [
-      { name: "Wiring & Rewiring", description: "Full wiring installation and safety upgrades.", link: "/contact" },
-      { name: "Panel Upgrades", description: "Upgrade old electrical panels to meet modern safety standards.", link: "/contact" },
-      { name: "Emergency Repairs", description: "24/7 emergency services for electrical issues.", link: "/contact" },
-    ],
+    description:
+      "Comprehensive electrical solutions—from wiring and panel upgrades to 24/7 emergency repairs—for homes, offices and industrial sites.",
+    link: "/services/electrical",
+    subServices: ["Wiring & Rewiring", "Panel Upgrades", "24/7 Emergency Repairs"],
   },
   {
-    id: "cooling-systems",
+    id: "cooling",
     title: "Cooling Systems",
     icon: "mdi:air-conditioner",
-    description: "Energy-efficient air conditioning and cooling solutions for homes and businesses.",
-    subServices: [
-      { name: "AC Installation", description: "Expert installation of cooling systems.", link: "/contact" },
-      { name: "Duct Cleaning", description: "Improve air quality with professional duct cleaning.", link: "/contact" },
-      { name: "Commercial HVAC", description: "Custom HVAC solutions for businesses.", link: "/contact" },
-    ],
+    description:
+      "Energy‑efficient air conditioning installations, duct cleaning, and commercial HVAC maintenance to keep you cool year‑round.",
+    link: "/services/cooling",
+    subServices: ["AC Installation", "Duct Cleaning", "Commercial HVAC"],
   },
   {
     id: "security",
     title: "Security Solutions",
     icon: "mdi:cctv",
-    description: "Advanced security solutions to protect your home and business.",
-    subServices: [
-      { name: "CCTV Systems", description: "24/7 surveillance solutions with remote access.", link: "/contact" },
-      { name: "Access Control", description: "Smart access control systems for businesses.", link: "/contact" },
-      { name: "Alarm Systems", description: "Burglar and fire alarm installation.", link: "/contact" },
-    ],
+    description:
+      "Advanced CCTV, access control, and alarm systems to protect your property—residential or commercial.",
+    link: "/services/security",
+    subServices: ["CCTV Systems", "Access Control", "Alarm Systems"],
   },
 ];
 
-const ServicesPage: React.FC = () => {
+export default function ServicesPage() {
   return (
     <section className={styles.servicesPage}>
-      {/* ✅ Hero Section */}
-      <div className={styles.hero}>
+      {/* Hero */}
+      <header className={styles.hero}>
         <h1>Our Services</h1>
         <p>Explore our expert solutions tailored to your needs.</p>
+      </header>
+
+      {/* Cards */}
+      <div className={styles.cards}>
+        {services.map((s) => (
+          <article key={s.id} id={s.id} className={styles.card}>
+            <div className={styles.header}>
+              <Icon icon={s.icon} width="36" height="36" />
+              <h2>{s.title}</h2>
+            </div>
+
+            <p className={styles.description}>{s.description}</p>
+
+            <ul className={styles.features}>
+              {s.subServices.map((feat) => (
+                <li key={feat}>
+                  <h3>{feat}</h3>
+                </li>
+              ))}
+            </ul>
+
+            <a href={s.link} className={styles.learnMore}>
+              Learn More About {s.title}
+            </a>
+          </article>
+        ))}
       </div>
 
-      {/* ✅ Services Cards */}
-      <div className={styles.servicesContainer}>
-        {services.map((service) => (
-          <div key={service.id} id={service.id} className={styles.serviceCard}>
-            {/* ✅ Icon and Title */}
-            <div className={styles.serviceHeader}>
-              <Icon icon={service.icon} className={styles.serviceIcon} />
-              <h2>{service.title}</h2>
-            </div>
-            <p className={styles.serviceDescription}>{service.description}</p>
-
-            {/* ✅ Sub-Services */}
-            <div className={styles.subServices}>
-              {service.subServices.map((sub, index) => (
-                <div key={index} className={styles.subService}>
-                  <h3>{sub.name}</h3>
-                  <p>{sub.description}</p>
-                  <a href={sub.link} className={styles.ctaButton}>Learn More</a>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+      {/* Call to Action */}
+      <div className={styles.cta}>
+        <p>Ready to get started? Contact us now for a free quote and expert advice.</p>
+        <Button text="Request a Quote" href="/contact" variant="primary" />
       </div>
     </section>
   );
-};
-
-export default ServicesPage;
+}

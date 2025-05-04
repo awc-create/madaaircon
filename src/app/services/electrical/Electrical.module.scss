@@ -1,130 +1,168 @@
 .electricalPage {
-    width: 100%;
-    min-height: 100vh;
-    padding: 80px 5% 60px;
-    padding-top: 10%;
-    text-align: center;
-    background-color: #fefefe;
-  }
-  
-  /* ✅ Hero Section */
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 5% 4rem;
+  background-color: #fefefe;
+  text-align: center;
+
+  /* Hero + CTA */
   .hero {
     max-width: 800px;
-    margin: 0 auto 50px;
-  
+    margin: 0 auto 3rem;
+
     h1 {
       font-size: 2.8rem;
-      color: #2C3E50;
-      margin-bottom: 10px;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
     }
-  
     .subheading {
       font-size: 1.4rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
       font-weight: 600;
-      color: #2C3E50;
-      margin-bottom: 15px;
     }
-  
     p {
       font-size: 1.1rem;
       color: #555;
       line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
+    /* Button uses existing Button styles */
   }
-  
-  /* ✅ Services Grid */
+
+  /* Services Grid */
   .servicesList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 60px;
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
-  
+
   .serviceItem {
-    background: #f3f3f3;
-    padding: 25px 20px;
+    background: #fff9e0;             /* light yellow background */
+    padding: 1.5rem 1rem;
     border-radius: 12px;
-    width: 350px;
+    width: 320px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     text-align: left;
-    transition: transform 0.3s ease;
-  
+    transition: transform 0.3s ease, background 0.3s ease;
+
     &:hover {
       transform: translateY(-5px);
+      background: #fff3cc;           /* deeper yellow on hover */
     }
-  
+
     h3 {
       font-size: 1.2rem;
-      color: #2C3E50;
-      margin-bottom: 10px;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
     }
-  
     p {
       font-size: 0.95rem;
       color: #666;
       line-height: 1.5;
+      margin: 0;
     }
   }
-  
-  /* ✅ Certifications Section */
+
+  /* Certifications */
   .certifications {
-    margin-top: 60px;
-    text-align: center;
-  
+    margin-top: 3rem;
+
     h2 {
       font-size: 1.8rem;
-      color: #2C3E50;
-      margin-bottom: 25px;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
     }
-  
     .certGrid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      gap: 2rem;
     }
-  
     img {
       height: 60px;
       width: auto;
-      object-fit: contain;
-      transition: transform 0.3s ease, filter 0.3s ease;
       filter: grayscale(20%);
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
-  
     a:hover img {
       transform: scale(1.05);
       filter: grayscale(0%);
     }
   }
-  
-  /* ✅ Responsive Design */
-  @media (max-width: 768px) {
+
+  /* FAQ Accordion */
+  .faqSection {
+    text-align: left;
+    max-width: 700px;
+    margin: 3rem auto 0;
+
+    h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .faqItem {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+      cursor: pointer;
+
+      button {
+        width: 100%;
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        color: #333;
+        font-weight: 600;
+        padding: 0;
+      }
+      .faqAnswer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        font-size: 0.95rem;
+        color: #555;
+        margin-top: 0.5rem;
+      }
+      &.open {
+        button { color: #2c3e50; }
+        .faqAnswer { max-height: 200px; }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .electricalPage {
+    padding: 4rem 3% 2rem;
+
+    .hero {
+      h1 { font-size: 2.2rem; }
+      .subheading { font-size: 1.2rem; }
+      p { font-size: 1rem; }
+    }
+
     .servicesList {
       flex-direction: column;
       align-items: center;
     }
-  
     .serviceItem {
-      width: 100%;
       max-width: 400px;
+      width: 100%;
     }
-  
-    .hero h1 {
-      font-size: 2.2rem;
-    }
-  
-    .hero .subheading {
-      font-size: 1.2rem;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-    }
-  
+
     .certifications img {
       height: 50px;
     }
+
+    .faqSection {
+      margin-top: 2rem;
+    }
   }
-  
+}
