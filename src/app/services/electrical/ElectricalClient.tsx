@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Button from "@/components/button/Button";
 import styles from "./Electrical.module.scss";
 
@@ -51,16 +52,40 @@ export default function ElectricalClient() {
         <h2>Certifications</h2>
         <div className={styles.certGrid}>
           <a href="https://www.napit.org.uk/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/napit-certification-logo.png" alt="NAPIT Certification" loading="lazy" />
+            <Image
+              src="/images/napit-certification-logo.png"
+              alt="NAPIT Certification"
+              width={120}
+              height={60}
+              loading="lazy"
+            />
           </a>
           <a href="https://www.niceic.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/niceic-certification-logo.png" alt="NICEIC Certification" loading="lazy" />
+            <Image
+              src="/images/niceic-certification-logo.png"
+              alt="NICEIC Certification"
+              width={120}
+              height={60}
+              loading="lazy"
+            />
           </a>
           <a href="https://www.ecscard.org.uk/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/ecs-certification-logo.png" alt="ECS Certification" loading="lazy" />
+            <Image
+              src="/images/ecs-certification-logo.png"
+              alt="ECS Certification"
+              width={120}
+              height={60}
+              loading="lazy"
+            />
           </a>
           <a href="https://www.electricalsafetyfirst.org.uk/" target="_blank" rel="noopener noreferrer">
-            <img src="/images/electrical-safety-first-certification-logo.png" alt="Electrical Safety First" loading="lazy" />
+            <Image
+              src="/images/electrical-safety-first-certification-logo.png"
+              alt="Electrical Safety First"
+              width={120}
+              height={60}
+              loading="lazy"
+            />
           </a>
         </div>
       </section>

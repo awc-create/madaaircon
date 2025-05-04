@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,68 +10,102 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  const closeAll = () => {
+    setServicesOpen(false);
+    setMobileOpen(false);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo}>
+        <Link href="/" onClick={closeAll} className={styles.logo}>
           <Image
             src="/assets/logo/logo.png"
-            alt="Madaaircon"
+            alt="Mada Facility Management Ltd"
             width={150}
             height={50}
             priority
           />
         </Link>
 
-        <ul className={styles.links}>
-          <li
-            className={styles.dropdown}
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <Link href="/services">Services</Link>
-            <ul className={`${styles.menu} ${servicesOpen ? styles.show : ""}`}>
-              <li><Link href="/services/electrical">Electrical</Link></li>
-              <li><Link href="/services/cooling">Cooling</Link></li>
-              <li><Link href="/services/security">Security</Link></li>
-            </ul>
-          </li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-
         <button
           className={styles.hamburger}
           aria-label="Toggle menu"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen((o) => !o)}
         >
-          <Icon icon={mobileOpen ? "mdi:close" : "mdi:menu"} />
+          <Icon icon={mobileOpen ? "mdi:close" : "mdi:menu"} width="28" height="28" />
         </button>
+      </div>
 
-        <div className={`${styles.mobileNav} ${mobileOpen ? styles.open : ""}`}>
-          <ul>
-            <li>
-              <button
-                className={styles.mobileToggle}
-                onClick={() => setServicesOpen(!servicesOpen)}
-              >
-                Services <Icon icon={servicesOpen ? "mdi:chevron-up" : "mdi:chevron-down"} />
-              </button>
-              {servicesOpen && (
-                <ul className={styles.mobileMenu}>
-                  <li><Link href="/services/electrical">Electrical</Link></li>
-                  <li><Link href="/services/cooling">Cooling</Link></li>
-                  <li><Link href="/services/security">Security</Link></li>
-                </ul>
-              )}
-            </li>
-            <li><Link href="/about" onClick={() => setMobileOpen(false)}>About</Link></li>
-            <li><Link href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link></li>
-          </ul>
+      {mobileOpen && <div className={styles.backdrop} onClick={closeAll} />}
+
+      <aside className={`${styles.mobileNav} ${mobileOpen ? styles.open : ""}`}>
+        <div className={styles.drawerHeader}>
+          <Image
+            src="/assets/logo/logo.png"
+            alt="Mada Facility Management Ltd"
+            width={120}
+            height={40}
+            priority
+          />
+          <button onClick={closeAll} className={styles.closeBtn} aria-label="Close menu">
+            <Icon icon="mdi:close" width="24" height="24" />
+          </button>
         </div>
 
-        {mobileOpen && <div className={styles.backdrop} onClick={() => setMobileOpen(false)} />}
-      </div>
+        <ul className={styles.mobileList}>
+          <li>
+            <button
+              className={styles.servicesToggle}
+              onClick={() => setServicesOpen((o) => !o)}
+            >
+              Services
+              <Icon
+                icon={servicesOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
+                width="20"
+                height="20"
+              />
+            </button>
+            {servicesOpen && (
+              <ul className={styles.mobileSubList}>
+                <li>
+                  <Link href="/services/electrical" onClick={closeAll}>
+                    Electrical
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/cooling" onClick={closeAll}>
+                    Cooling
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/security" onClick={closeAll}>
+                    Security
+                  </Link>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          <li>
+            <Link href="/about" onClick={closeAll}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" onClick={closeAll}>
+              Contact
+            </Link>
+          </li>
+        </ul>
+
+        <div className={styles.drawerFooter}>
+          <a href="tel:07908833222">07908 833 222</a>
+          <a href="mailto:localmaintenance75@gmail.com">
+            localmaintenance75@gmail.com
+          </a>
+        </div>
+      </aside>
     </nav>
   );
 }

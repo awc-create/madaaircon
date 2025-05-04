@@ -3,8 +3,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Button from "@/components/button/Button";
-import { Icon } from "@iconify/react";
 import styles from "./Cooling.module.scss";
 
 const services = [
@@ -89,10 +89,12 @@ export default function CoolingClient() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            <Image
               src="/images/fgas-certification-logo.png"
               alt="F‑Gas Certification Logo"
               title="F‑Gas Certified – Fluorinated Greenhouse Gas Handling"
+              width={120}
+              height={60}
               loading="lazy"
             />
           </a>
@@ -101,10 +103,12 @@ export default function CoolingClient() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            <Image
               src="/images/city-and-guilds-certification-logo.png"
               alt="City & Guilds Certification Logo"
               title="City & Guilds – Accredited Technical Training"
+              width={120}
+              height={60}
               loading="lazy"
             />
           </a>
@@ -113,10 +117,12 @@ export default function CoolingClient() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
+            <Image
               src="/images/mcs-certification-logo.png"
               alt="MCS Certification Logo"
               title="MCS – Microgeneration Certification Scheme"
+              width={120}
+              height={60}
               loading="lazy"
             />
           </a>

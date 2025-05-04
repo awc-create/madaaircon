@@ -32,10 +32,16 @@ const Footer: React.FC = () => {
         <p className={styles.copyright}>
           &copy; {new Date().getFullYear()} Madaaircon. All rights reserved.
         </p>
-
         {/* ✅ Website Credit - AWC */}
         <p className={styles.awcCredit}>
-          Website created by <a href="adaptiveworks.net" target="_blank" rel="noopener noreferrer">AWC</a>
+          Website created by{" "}
+          <a
+            href="https://adaptiveworks.net"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            AWC
+          </a>
         </p>
       </div>
     </footer>
