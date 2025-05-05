@@ -1,3 +1,4 @@
+// src/app/navbar/Navbar.tsx
 "use client";
 
 import { useState } from "react";
@@ -14,6 +15,7 @@ export default function Navbar() {
     setServicesOpen(false);
     setMobileOpen(false);
   };
+  const toggleServices = () => setServicesOpen((o) => !o);
 
   return (
     <nav className={styles.navbar}>
@@ -27,6 +29,13 @@ export default function Navbar() {
             priority
           />
         </Link>
+
+        {/* Desktop Links */}
+        <div className={styles.desktopLinks}>
+          <Link href="/services" onClick={closeAll}>Services</Link>
+          <Link href="/about"    onClick={closeAll}>About</Link>
+          <Link href="/contact"  onClick={closeAll}>Contact</Link>
+        </div>
 
         <button
           className={styles.hamburger}
@@ -54,18 +63,24 @@ export default function Navbar() {
         </div>
 
         <ul className={styles.mobileList}>
-          <li>
-            <button
-              className={styles.servicesToggle}
-              onClick={() => setServicesOpen((o) => !o)}
-            >
-              Services
-              <Icon
-                icon={servicesOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
-                width="20"
-                height="20"
-              />
-            </button>
+          <li className={styles.servicesItem}>
+            <div className={styles.servicesLinkWrapper}>
+              <Link href="/services" onClick={closeAll}>
+                Services
+              </Link>
+              <button
+                className={styles.servicesToggle}
+                onClick={toggleServices}
+                aria-expanded={servicesOpen}
+                aria-label="Toggle services submenu"
+              >
+                <Icon
+                  icon={servicesOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
             {servicesOpen && (
               <ul className={styles.mobileSubList}>
                 <li>
@@ -88,24 +103,22 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/about" onClick={closeAll}>
-              About
-            </Link>
+            <Link href="/about" onClick={closeAll}>About</Link>
           </li>
           <li>
-            <Link href="/contact" onClick={closeAll}>
-              Contact
-            </Link>
+            <Link href="/contact" onClick={closeAll}>Contact</Link>
           </li>
         </ul>
 
         <div className={styles.drawerFooter}>
-          <a href="tel:07908833222">07908 833 222</a>
-          <a href="mailto:localmaintenance75@gmail.com">
-            localmaintenance75@gmail.com
+          <a href="tel:07908833222" aria-label="Call us">
+            <Icon icon="mdi:phone" width="24" height="24" />
+          </a>
+          <a href="mailto:localmaintenance75@gmail.com" aria-label="Email us">
+            <Icon icon="mdi:email" width="24" height="24" />
           </a>
         </div>
       </aside>
     </nav>
-  );
+);
 }
